@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ToyForm({ onAddToy }) {
+function ToyForm({ apiUrl, onAddToy }) {
   const [formData, setFormData] = useState({ name: "", image: "" });
 
   function handleChange(e) {
@@ -10,7 +10,7 @@ function ToyForm({ onAddToy }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch("http://localhost:3001/toys", {
+    fetch(apiUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...formData, likes: 0 }),
