@@ -22,6 +22,10 @@ function handleAddToy(newToy) {
 // in the return, change:
 {showForm ? <ToyForm onAddToy={handleAddToy} /> : null}
 
+function handleDeleteToy(id) {
+  setToys((toys) => toys.filter((toy) => toy.id !== id));
+}
+
   // handleClick stays the same
 
   return (
