@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-// import Header from "./Header";
-// import ToyForm from "./ToyForm";
+import Header from "./Header";
+import ToyForm from "./ToyForm";
 import ToyContainer from "./ToyContainer";
 
 
@@ -14,6 +14,13 @@ function App() {
       .then((r) => r.json())
       .then((data) => setToys(data));
   }, []);
+
+function handleAddToy(newToy) {
+  setToys((toys) => [...toys, newToy]);
+}
+
+// in the return, change:
+{showForm ? <ToyForm onAddToy={handleAddToy} /> : null}
 
   // handleClick stays the same
 
